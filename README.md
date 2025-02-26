@@ -127,7 +127,7 @@ ORCID Profile: https://orcid.org/0000-0003-1712-6358
 
 ## Email Addresses:
 
-lmr.2020@gmail.com
+lmr.2020@outlook.pt
 
 luisraimundo@fcsh.unl.pt
 
