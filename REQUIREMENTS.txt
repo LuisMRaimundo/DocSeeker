@@ -1,0 +1,9 @@
+PyPDF2
+python-docx
+beautifulsoup4
+pytesseract
+Pillow
+numpy
+scikit-image
+opencv-python
+pdf2image
