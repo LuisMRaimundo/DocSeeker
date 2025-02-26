@@ -1,7 +1,5 @@
 **README.md** (English)
 
-# GPT Document Scrab (Version 12)
-
 This project is an **advanced document search tool** that supports searching through text files, PDF, DOCX, HTML, and image files (via OCR). It features a **Boolean search parser** for queries (using `AND`, `OR`, `NOT`, and quoted phrases), extraction of text from documents, relevancy scoring, duplicate detection, and a simple **Tkinter GUI**.
 
 ## Main Features
@@ -93,12 +91,39 @@ This project is an **advanced document search tool** that supports searching thr
 - Group complex expressions with parentheses, e.g. `(Python OR Java) AND "data analytics"`.  
 - If you need advanced OCR, ensure Tesseract is properly installed and recognized by the system.
 
-## License
+**LICENSE.md**
 
-This project does not include an explicit license in the repository; feel free to add one (e.g., MIT, GPL) according to your needs.
+This package is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**.  
+To view the full text of this license, visit: [https://creativecommons.org/licenses/by-nc-nd/4.0/](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+
+## Acknowledgments
+
+This software was developed by Luís Raimundo, as part of a broader study on Music Analysis
+**DOI 10.54499/2020.08817.BD 8D** (https://doi.org/10.54499/2020.08817.BD) 
+
+and was funded by:
+
+**Foundation for Science and Technology (FCT)** - Portugal
+
+And also supported by:
+
+**Universidade NOVA de Lisboa**
+**Centre for the Study of Sociology and Musical Aesthetics** (CESEM)
+**Contemporary Music Group Investigation** (GIMC)
+**In2Past**
+
+---
+
 
 ## Contact
+Please feel free to open an issue on this repository if you encounter problems or want to request more/new features to the code
 
-If you have any questions or suggestions, please open an issue on the GitHub repository or send an email to the maintainer.
+**Luís Miguel da Luz Raimundo**
+ORCID Profile: https://orcid.org/0000-0003-1712-6358
+
+## Email Addresses:
+lmr.2020@gmail.com
+luisraimundo@fcsh.unl.pt
 
 
