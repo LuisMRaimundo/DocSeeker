@@ -126,7 +126,9 @@ Please feel free to open an issue on this repository if you encounter problems o
 ORCID Profile: https://orcid.org/0000-0003-1712-6358
 
 ## Email Addresses:
+
 lmr.2020@gmail.com
+
 luisraimundo@fcsh.unl.pt
 
 
