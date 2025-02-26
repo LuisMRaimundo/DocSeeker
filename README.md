@@ -109,8 +109,11 @@ and was funded by:
 And also supported by:
 
 **Universidade NOVA de Lisboa**
+
 **Centre for the Study of Sociology and Musical Aesthetics** (CESEM)
+
 **Contemporary Music Group Investigation** (GIMC)
+
 **In2Past**
 
 ---
