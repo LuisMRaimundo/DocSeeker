@@ -1,4 +1,4 @@
-**README.md** (English)
+**README.md**
 
 This project is an **advanced document search tool** that supports searching through text files, PDF, DOCX, HTML, and image files (via OCR). It features a **Boolean search parser** for queries (using `AND`, `OR`, `NOT`, and quoted phrases), extraction of text from documents, relevancy scoring, duplicate detection, and a simple **Tkinter GUI**.
 
