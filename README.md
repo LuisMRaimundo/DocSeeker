@@ -89,10 +89,12 @@ This project is an **advanced document search tool** that supports searching thr
 - Group complex expressions with parentheses, e.g. `(Python OR Java) AND "data analytics"`.  
 - If you need advanced OCR, ensure Tesseract is properly installed and recognized by the system.
 
-**LICENSE.md**
+## License
 
-This package is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**.  
-To view the full text of this license, visit: [https://creativecommons.org/licenses/by-nc-nd/4.0/](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+This package is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.  
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+**This license allows others to download and share your work with attribution, but not to modify it in any way or use it commercially**
 
 
 ## Acknowledgments
