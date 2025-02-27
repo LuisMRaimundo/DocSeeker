@@ -38,6 +38,25 @@ This project is an **advanced document search tool** that supports searching thr
    - Users can access a web-based search tool via **http://127.0.0.1:5000/**.
    - The `/search` API endpoint allows programmatic queries.
    - JSON responses provide structured search results.
+   - Requires a `templates/` folder with `index.html` to function properly.
+   - Users must manually create the `templates/` folder if missing:
+     ```bash
+     mkdir templates
+     ```
+   - If `index.html` is missing, it can be manually created inside `templates/`:
+     ```html
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <title>DocSeeker Web</title>
+     </head>
+     <body>
+         <h1>Welcome to DocSeeker</h1>
+         <p>Use this web interface to search documents.</p>
+     </body>
+     </html>
+     ```
 
 8. **Report Generation**  
    - Saves a detailed report of all matches, grouped by file.
@@ -85,9 +104,10 @@ pip install -r requirements.txt
    ```bash
    python docseeker_v2.py web
    ```
-2. Open **http://127.0.0.1:5000/** in a browser.
-3. Enter a search query and select the document types.
-4. View structured search results.
+2. Ensure the `templates/` folder exists and contains `index.html`.
+3. Open **http://127.0.0.1:5000/** in a browser.
+4. Enter a search query and select the document types.
+5. View structured search results.
 
 ## Tips
 
@@ -100,6 +120,7 @@ pip install -r requirements.txt
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**. 
 For full license details, see the [`LICENSE.md`](LICENSE.md) file.
+
 
 ---
 
