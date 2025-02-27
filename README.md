@@ -101,11 +101,7 @@ pip install -r requirements.txt
 This project is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**. 
 For full license details, see the [`LICENSE.md`](LICENSE.md) file.
 
-## Contact
-
-If you have any questions or suggestions, please open an issue on the GitHub repository or contact the maintainer.
-
-
+---
 
 ## Acknowledgments
 
@@ -128,9 +124,8 @@ And also supported by:
 
 ---
 
-
 ## Contact
-Please feel free to open an issue on this repository if you encounter problems or want to request more/new features to the code
+If you have any questions or suggestions, please open an issue on the GitHub repository or contact the maintainer.
 
 **Luís Miguel da Luz Raimundo**
 ORCID Profile: https://orcid.org/0000-0003-1712-6358
