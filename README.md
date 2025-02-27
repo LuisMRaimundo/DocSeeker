@@ -1,100 +1,110 @@
-This project is an **advanced document search tool** that supports searching through text files, PDF, DOCX, HTML, and image files (via OCR). It features a **Boolean search parser** for queries (using `AND`, `OR`, `NOT`, and quoted phrases), extraction of text from documents, relevancy scoring, duplicate detection, and a simple **Tkinter GUI**.
+# Document Search Tool
+
+This project is an **advanced document search tool** that supports searching through text files, PDF, DOCX, HTML, and image files (via OCR). It provides a **Boolean search parser** (`AND`, `OR`, `NOT`), relevance scoring, duplicate detection, and includes both a **Tkinter GUI** and a **Flask web interface**.
 
 ## Main Features
 
 1. **Boolean Text Search**  
-   - Supports `.txt`, `.pdf`, `.docx`, `.html`, and `.htm` files.  
-   - For PDF files, it tries direct text extraction. If that fails, it falls back to OCR-based text extraction.  
-   - For DOCX files, it reads each paragraph to search for matches.  
-   - For HTML files, it processes text from selected tags (`<p>`, `<div>`, `<h1>`-`<h6>`).  
-   - For images (`.png`, `.jpg`, `.jpeg`, `.tiff`, `.bmp`), it uses OCR to extract text.
+   - Supports `.txt`, `.pdf`, `.docx`, `.html`, `.htm`, and image-based text search.
+   - Uses **direct text extraction** for PDFs and DOCX files.
+   - Applies **OCR (Tesseract)** to extract text from scanned PDFs and image files.
+   - Extracts text from HTML files based on common tags (`<p>`, `<div>`, `<h1>`-`<h6>`).
 
 2. **Advanced Boolean Parsing**  
-   - Supports `AND`, `OR`, `NOT` operators and parentheses for grouping.  
-   - Quoted phrases, e.g. `"exact phrase"`.  
-   - Relevancy scoring with term frequency and proximity measures.  
-   - Generates a context snippet highlighting matched terms.
+   - Supports `AND`, `OR`, `NOT` operators and parentheses.
+   - Recognizes **quoted phrases** (e.g., "exact phrase").
+   - Uses **relevance scoring** based on term frequency and proximity.
+   - Displays contextual snippets around matched text.
 
-3. **Duplicate Detection**  
-   - Identical results from multiple files or repeated sections are flagged as duplicates and can be omitted from the final report.
+3. **Metadata Extraction**  
+   - Extracts **file properties** (size, creation date, modification date).
+   - Retrieves **PDF metadata** (author, title, keywords).
+   - Reads **DOCX file properties** (e.g., author information).
 
-4. **OCR and Preprocessing**  
-   - Automatically uses **Tesseract OCR** when native text extraction is not available.  
-   - Preprocessing steps (deskew, contrast enhancements, binarization, etc.) to improve OCR accuracy.
+4. **Duplicate Detection**  
+   - Identical results are flagged as duplicates and can be filtered.
+   - Uses **MD5 hashing** to detect duplicate files.
 
-5. **Graphical User Interface (Tkinter)**  
-   - Select the directory containing documents and the output file location for results.  
-   - Specify the Boolean query, relevancy threshold, context size, and file types to search.  
-   - Start and monitor the search process within a user-friendly GUI.
+5. **OCR and Preprocessing**  
+   - Uses **Tesseract OCR** when native text extraction is unavailable.
+   - Includes preprocessing steps (deskewing, contrast enhancement, binarization) to improve OCR accuracy.
 
-6. **Report Generation**  
-   - Saves a detailed report of all matches, grouped by file, sorted by relevance score.  
-   - Shows a snippet of text where the match was found.
+6. **Graphical User Interface (Tkinter)**  
+   - Provides an intuitive **desktop interface** for selecting files and queries.
+   - Allows users to set **minimum relevance score, context size, and file types**.
+   - Displays **search progress** with a status bar.
+
+7. **Web-Based Interface (Flask)**  
+   - Users can access a web-based search tool via **http://127.0.0.1:5000/**.
+   - The `/search` API endpoint allows programmatic queries.
+   - JSON responses provide structured search results.
+
+8. **Report Generation**  
+   - Saves a detailed report of all matches, grouped by file.
+   - Sorts results by **relevance score**.
+   - Includes a **contextual snippet** around each match.
 
 ## Installation
 
-1. **Install Tesseract OCR**  
-   - **Linux (Ubuntu/Debian)**:  
-     ```bash
-     sudo apt-get update
-     sudo apt-get install tesseract-ocr
-     ```  
-   - **Windows**: Download and install from [Tesseract at UB Mannheim](https://github.com/UB-Mannheim/tesseract/wiki).  
-   - **macOS** (Homebrew):  
-     ```bash
-     brew install tesseract
-     ```
+### **1. Install Tesseract OCR**  
+- **Linux (Ubuntu/Debian):**
+  ```bash
+  sudo apt-get update
+  sudo apt-get install tesseract-ocr
+  ```
+- **Windows:** Download and install from [Tesseract at UB Mannheim](https://github.com/UB-Mannheim/tesseract/wiki).
+- **macOS (Homebrew):**
+  ```bash
+  brew install tesseract
+  ```
 
-2. **(Optional) Create a Virtual Environment**  
-   ```bash
-   python -m venv venv
-   # Linux/Mac
-   source venv/bin/activate
-   # or Windows
-   .\venv\Scripts\activate
-   ```
-
-3. **Install Python Dependencies**  
-   - See `requirements.txt` for the list of dependencies.  
-   - Install them with:
-     ```bash
-     pip install -r requirements.txt
-     ```
+### **2. Install Python Dependencies**  
+Run the following command to install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
 
-1. **Clone or Download** this repository.  
-2. **Run the Script**:
+### **GUI Mode (Tkinter)**
+1. Run the script:
    ```bash
-   python gpt_doc_scrab_v12.py
+   python docseeker_v2.py gui
    ```
-   This will open the **Tkinter interface**.
+2. Use the GUI to:
+   - Select the **directory** containing documents.
+   - Choose the **output file** for results.
+   - Enter a **Boolean search query** (e.g., `"machine learning" AND Python NOT Java`).
+   - Adjust **relevance score, context size, and duplicate filtering**.
+   - Select the **file types** to include in the search.
+   - Click **Start Search** to begin.
+3. A report will be generated with the results.
 
-3. **In the GUI**:
-   - **Directory**: select the folder containing your files (TXT, PDF, DOCX, HTML, images).  
-   - **Output File**: choose or type a path for the output file (e.g., `search_results.txt`).  
-   - **Boolean Search Query**: type something like `"machine learning" AND (Python OR R) AND NOT Java`.  
-   - **Advanced Options** (optional):
-     - **Minimum Relevance Score**: skip results below this score (default 0.1).  
-     - **Context Window Size**: how many characters to show around the match (default 150).  
-     - **Show Duplicate Results**: toggle whether duplicates should appear in the final report.  
-   - **File Types to Search**: select among TXT, PDF, DOCX, HTML, Image.  
-   - Click **Start Search** to begin.  
-   - A success message will appear with the number of results. Open your output file to review the details.
+### **Web Mode (Flask)**
+1. Run the script:
+   ```bash
+   python docseeker_v2.py web
+   ```
+2. Open **http://127.0.0.1:5000/** in a browser.
+3. Enter a search query and select the document types.
+4. View structured search results.
 
 ## Tips
 
-- Use uppercase `AND`, `OR`, `NOT` in your queries to ensure correct parsing.  
-- Put exact phrases in quotes, e.g. `"machine learning"`.  
-- Group complex expressions with parentheses, e.g. `(Python OR Java) AND "data analytics"`.  
-- If you need advanced OCR, ensure Tesseract is properly installed and recognized by the system.
+- Use uppercase `AND`, `OR`, `NOT` in your queries to ensure correct parsing.
+- Put exact phrases in quotes, e.g., `"machine learning"`.
+- Group complex expressions with parentheses, e.g., `(Python OR Java) AND "data analytics"`.
+- If you need advanced OCR, ensure **Tesseract** is installed and correctly recognized by the system.
 
 ## License
 
-This package is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.  
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+This project is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**. 
+For full license details, see the [`LICENSE.md`](LICENSE.md) file.
 
-**This license allows others to download and share your work with attribution, but not to modify it in any way or use it commercially**
+## Contact
+
+If you have any questions or suggestions, please open an issue on the GitHub repository or contact the maintainer.
+
 
 
 ## Acknowledgments
