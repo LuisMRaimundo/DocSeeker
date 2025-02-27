@@ -7,3 +7,13 @@ numpy
 scikit-image
 opencv-python
 pdf2image
+
+# Flask dependencies
+flask
+
+# GUI dependencies (Tkinter is built-in, but ttkbootstrap can be useful for styling)
+ttkbootstrap
+
+# NLP & Search Enhancements
+nltk
+fuzzywuzzy
